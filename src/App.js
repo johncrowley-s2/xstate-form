@@ -1,6 +1,6 @@
 import { useMachine } from "@xstate/react";
 import { useCallback } from "react";
-import { onSubmit } from "../api";
+import { onSubmit } from "./api";
 import { formMachine } from "./formMachine";
 
 function App() {
