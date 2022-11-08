@@ -33,7 +33,7 @@ function App() {
         <p>
           Welcome to the <b>machine</b>!
         </p>
-        {(state.matches("editing") || state.matches("submitting")) && (
+        {(state.matches("editing") || state.matches("pending")) && (
           <form onSubmit={handleSubmit}>
             <div className="formGroup">
               <label htmlFor="firstName">First Name:</label>
@@ -41,7 +41,7 @@ function App() {
                 name="firstName"
                 value={values.firstName || ""}
                 onChange={handleChange}
-                disabled={state.matches("submitting")}
+                disabled={state.matches("pending")}
               />
             </div>
             <div className="formGroup">
@@ -50,7 +50,7 @@ function App() {
                 name="lastName"
                 value={values.lastName || ""}
                 onChange={handleChange}
-                disabled={state.matches("submitting")}
+                disabled={state.matches("pending")}
               />
             </div>
             <div className="formGroup">
@@ -59,11 +59,11 @@ function App() {
                 name="favoriteColor"
                 value={values.favoriteColor || ""}
                 onChange={handleChange}
-                disabled={state.matches("submitting")}
+                disabled={state.matches("pending")}
               />
             </div>
             <div className="formGroup">
-              <input type="Submit" disabled={state.matches("submitting")} />
+              <input type="Submit" disabled={state.matches("pending")} />
             </div>
           </form>
         )}
