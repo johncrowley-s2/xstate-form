@@ -9,22 +9,21 @@ export const formMachine = createMachine(
     },
     states: {
       editing: {
-        initial: "pristine",
+        initial: "new",
         on: {
           CHANGE: {
             actions: ["onChange"],
           },
-          SUBMIT: "submitting",
+          SUBMIT: "pending",
         },
         states: {
-          pristine: {
-            // This is up to you, but I felt like the form needed to be cleared before receiving a new submission
+          new: {
             entry: ["clearForm"],
           },
           error: {},
         },
       },
-      submitting: {
+      pending: {
         invoke: {
           src: "onSubmit",
           onDone: "success",
